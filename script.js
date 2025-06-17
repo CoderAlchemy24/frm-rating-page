@@ -10,21 +10,20 @@ let score = 0;
 
 
 ratings.forEach((rating)=>{rating.addEventListener("click",
-   ()=> { ratings.forEach(num => num.classList.remove('selected'));
+ clickHandler)});
+
+ratings.forEach((rating)=>{rating.addEventListener("keydown",
+   (e)=> {  if (e.key === "Enter" || e.key === " ") selectRating(e);
+   })});
  
-        rating.classList.add('selected');
-        selected = rating.querySelector('p').textContent.trim();
-        score = parseInt(selected, 10);
-       
-       
-   } )});
-
-
    
 
-button.addEventListener("click", ()=>{
-  
+button.addEventListener("click", clickHandler);
 
+
+
+
+function clickHandler(){
     page1.classList.remove('visible');
     page1.classList.add('not-visible');
     page2.classList.add('visible');
@@ -35,4 +34,16 @@ button.addEventListener("click", ()=>{
     }
     else { feedbackText.textContent = `You did not select any rating`;
   }
-})
+}
+
+function selectRating(e){
+    ratings.forEach(num => num.classList.remove('selected'));
+ 
+        e.target.classList.add('selected');
+        selected = e.target.querySelector('p').textContent.trim();
+        score = parseInt(selected, 10);
+       
+       
+   }
+
+
