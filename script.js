@@ -9,41 +9,43 @@ let selected = null;
 let score = 0;
 
 
-ratings.forEach((rating)=>{rating.addEventListener("click",
- clickHandler)});
-
-ratings.forEach((rating)=>{rating.addEventListener("keydown",
-   (e)=> {  if (e.key === "Enter" || e.key === " ") selectRating(e);
-   })});
- 
+  function selectRating(rating) {
+  
+    ratings.forEach(r => r.classList.remove('selected'));
    
+    rating.classList.add('selected');
+  
+    score = rating.querySelector('p').textContent.trim();
+    selected = parseInt(score, 10);
+  }
 
-button.addEventListener("click", clickHandler);
-
-
-
-
-function clickHandler(){
+function clickHandler() {
     page1.classList.remove('visible');
     page1.classList.add('not-visible');
     page2.classList.add('visible');
     page2.classList.remove('not-visible');
-    
-    if (score!==0){
-    feedbackText.textContent = `You selected ${score} out of 5`;
+
+    if (selected !== null) {
+        feedbackText.textContent = `You selected ${selected} out of 5`;
+    } else {
+        feedbackText.textContent = `You did not select any rating`;
     }
-    else { feedbackText.textContent = `You did not select any rating`;
-  }
 }
 
-function selectRating(e){
-    ratings.forEach(num => num.classList.remove('selected'));
- 
-        e.target.classList.add('selected');
-        selected = e.target.querySelector('p').textContent.trim();
-        score = parseInt(selected, 10);
-       
-       
-   }
+button.addEventListener('click', clickHandler);
+button.addEventListener("keydown",  (e)=> {  if (e.key === "Enter" || e.key === " ") clickHandler();
+   });  
 
 
+ratings.forEach(rating => {
+  rating.addEventListener('click', () => {
+    selectRating(rating);
+  });
+
+  rating.addEventListener('keydown', (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      selectRating(rating);
+    }
+  });
+  
+  });
