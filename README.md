@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/CoderAlchemy24/frm-rating-page.git](https://github.com/CoderAlchemy24/frm-rating-page.git)
-- Live Site URL: [](https://inquisitive-valkyrie-e40406.netlify.app/)
+- Live Site URL: [https://marvelous-sprinkles-fb1ba9.netlify.app/](https://marvelous-sprinkles-fb1ba9.netlify.app/)
 
 
 
