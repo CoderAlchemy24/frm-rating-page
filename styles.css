@@ -338,17 +338,32 @@ main{
   display: none;
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 48rem) and (min-width: 25rem) {
   
+  body{
+    margin: 0 auto;
+     display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
   main {
-    margin: 9.5625rem auto;
+    margin: 7.5rem auto;
     border-radius: 1.5625rem;
+
+   
   }
 
   .rating-content{
-    margin: 1.5rem auto;
-     width: 20.4375rem;
+    margin: 0 auto;
+     width: 20rem;
     height: 22.5rem;
+
+     padding: 1.5rem 1.5rem;
+    
+    
 
     
 
@@ -375,8 +390,7 @@ main{
 
   .rating-content {
    
-    padding: 1.5rem 1.5rem;
-    gap:1.5rem;
+   
   }
 
 
